@@ -1,0 +1,72 @@
+%h2
+  %b= "##{@channel.name}"
+
+%br
+
+.row.standup-date
+  .col-md-6.date
+    %h2
+      %b= @date.strftime("%A")
+      = @date.strftime('%d')
+      = @date.strftime('%b')
+  .col-md-6.date-picker
+    %a.previous-date
+      = link_to 'Previous Day', channel_standups_url(@channel, date: @date.prev_day)
+    - if @date == Date.today
+      |
+      %a.not-active Today
+    - else
+      %a.todays-date{ href: channel_standups_url(@channel) } Today
+      %a.next-date
+        = link_to 'Next Day', channel_standups_url(@channel, date: @date.next_day)
+
+.masonry-container.row.clearfix
+  - if @standups.empty?
+    .alert.alert-warning
+      There are no standups for this day.
+
+  - else
+    - @standups.each do |standup|
+      .col-md-4.standup-card.item
+        .standup-card-wrap
+          .name-section.section.clearfix
+            .row
+              .col-lg-3.avatar
+                = image_tag(standup.user.avatar_url)
+              .col-lg-9
+                %h2
+                  = standup.user.full_name
+
+          - if standup.vacation? || standup.not_available?
+            .vacation.section
+              %br
+              .text-center
+                %b
+                  - if standup.vacation?
+                    Vacation
+                  - else
+                    Not Available
+                = " #{standup.reason}" if standup.reason.present?
+
+          - else
+            .yesterday-section.section
+              %h2 What I worked on yesterday:
+              %ul
+                - if standup.yesterday.present?
+                  - standup.yesterday.split(/\n/).each do |text|
+                    %li= emojify(text)
+
+            .today-section.section
+              %h2 What I am working on today:
+              %ul
+                - if standup.today.present?
+                  - standup.today.split(/\n/).each do |text|
+                    %li= emojify(text)
+
+            .blocks-section.section
+              %h2 What is in my way:
+              %ul
+                - if standup.conflicts.present?
+                  - standup.conflicts.split(/\n/).each do |text|
+                    %li= emojify(text)
+

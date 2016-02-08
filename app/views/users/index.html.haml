@@ -1,0 +1,30 @@
+= javascript_include_tag :users
+
+%h1 Users
+
+%table.table.users__table--white
+  %tr
+    %th.col-xs-2 Full Name
+    %th Nickname
+    %th Email
+    %th.col-xs-1 Avatar
+    %th.col-xs-1.text-center Report
+    %th.col-xs-1.text-center Admin
+    %th.col-xs-1.text-center Disable
+  - @users.each do |user|
+    %tr
+      %td= user.full_name
+      %td= "@#{user.nickname}"
+      %td= user.email
+      %td= image_tag user.avatar_url, class: 'img-thumbnail'
+      %td.text-center
+        = form_for user, remote: true do |f|
+          = f.check_box :send_standup_report
+      %td.text-center
+        = form_for user, remote: true do |f|
+          = f.check_box :admin
+      %td.text-center
+        = form_for user, remote: true do |f|
+          = f.check_box :disabled
+
+

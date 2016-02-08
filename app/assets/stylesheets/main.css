@@ -1,0 +1,172 @@
+html {
+	font-size: 62.5%;
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	background-color: #eeeeee;
+	color: #222;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+.wrapper {
+  min-height: 95%;
+  margin-bottom: -100px;
+  padding-bottom: 100px;
+}
+
+footer {
+  height: 100px;
+}
+
+/* dear god don't pick these colors */
+.colors-1 {
+	background-color: #fad3a0;
+}
+.colors-1 .navbar {
+	background-color: #ac7daa;
+}
+
+/* these colors are better if you like the purple navbar */
+.colors-2 .navbar {
+	background-color: #632089;
+}
+
+.colors-3 .navbar {
+	background-color: #4D394B;
+}
+
+.colors-3 .navbar .dropdown-toggle:hover, .colors-3 .navbar .dropdown.open .dropdown-toggle {
+	background-color: #4D394B;
+}
+
+.navbar {
+	background-color: #204489;
+	box-shadow: 0 4px 8px rgba(0,0,0,.25);
+	float: center;
+}
+.navbar a {
+	color: #fff;
+}
+
+.navbar-brand {
+	position: relative;
+  left: calc(50% - 150px);
+}
+
+.navbar-brand img {
+	height: 25px;
+}
+
+.main-content {
+	margin-top: 100px;
+}
+
+.standup-date {
+	margin-bottom: 20px;
+}
+.date h2 {
+	font-size: 2.2rem;
+	font-weight: 300;
+	margin: 0;
+}
+.date h2 strong {
+	font-weight: 700;
+}
+.date-picker {
+	text-align: right;
+}
+.todays-date {
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	margin: 0 8px;
+	padding: 0 8px;
+}
+
+.standup-card {
+	display: inline-block;
+	padding-bottom: 30px;
+}
+
+.standup-card-wrap /* hack because bootstrap is dumb */ {
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(0,0,0,.2);
+	display: block;
+	padding: 0;
+	position:relative;
+}
+.standup-card-wrap .section {
+	border-bottom: 1px solid #ddd;
+	padding: 15px;
+}
+
+.standup-card-wrap {
+	margin-bottom: 15px;
+}
+.standup-card h2 {
+	font-size: 1.6rem;
+	font-weight: 700;
+	margin-bottom: 10px;
+	margin-top: 0;
+	padding-top: 7px;
+	width: 280px;
+}
+.standup-card h3 {
+	margin: 0;
+}
+
+.name-section h2 {
+	margin-top:10px;
+	margin-bottom: 2px;
+}
+.name-section h3 {
+	font-size: 1.6rem;
+	font-weight: 300;
+}
+
+.user-avatar {
+	background-color: green;
+	border-radius: 25px;
+	display: inline-block;
+	float: left;
+	height: 50px;
+	margin-right: 10px;
+	width: 50px;
+}
+
+.avatar img {
+	border-radius: 25px;
+	float: left;
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+	margin-right: 10px;
+}
+
+.yesterday-section {
+	border-left: 3px solid #70aacf;
+}
+
+.today-section {
+	border-left: 3px solid #86cf70;
+}
+
+.blocks-section {
+	border-left: 3px solid #cf7070;
+}
+
+.vacation {
+	border-bottom: 0px! important;
+}
+
+.text-muted img {
+	height: 20px;
+}
+
+.not-active {
+  pointer-events: none;
+  cursor: default;
+}

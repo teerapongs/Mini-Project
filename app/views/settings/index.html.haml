@@ -1,0 +1,35 @@
+- if flash[:error]
+  .alert.alert-danger= flash[:error]
+
+- if flash[:notice]
+  .alert.alert-success= flash[:notice]
+
+.alert.alert-warning
+  %b Warning!
+  Be sure that you enter the correct Bot username and Api Token, the app won't work if you enter one of them incorrectly.
+
+= form_for @settings do |f|
+  %fieldset
+    %legend Bot
+    .form-group
+      = f.label "Username"
+      = f.text_field :bot_name, class: 'form-control'
+
+    .form-group
+      = f.label "Api Token"
+      = f.text_field :api_token, class: 'form-control'
+
+  %fieldset
+    %legend Website
+    .form-group
+      = f.label "Url"
+      = f.text_field :web_url, class: 'form-control', placeholder: 'http://your-app-name.herokuapp.com/'
+
+  %fieldset
+    %legend Standup
+    .form-group
+      = f.label "Auto Skip Timeout"
+      = f.select :auto_skip_timeout, [ 1, 2, 4, 6, 8, 10 ], {}, { class: 'form-control' }
+
+  .form-group
+    = f.submit class: "btn btn-default"

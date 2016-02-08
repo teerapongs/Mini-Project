@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - ruby-2.0.0-p598
+env:
+  - DB=postgresql
+script:
+  - RAILS_ENV=test bundle exec rake db:create
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
